@@ -9,12 +9,31 @@ import SwiftUI
 
 struct WTabView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView {
+            WListView()
+                .tabItem {
+                    Image(systemName: "house.fill")
+                    Text("Home")
+                }
+            WAccountView()
+                .tabItem {
+                    Image(systemName: "person.icloud.fill")
+                    Text("Account")
+                }
+            
+            WOrderView()
+                .tabItem {
+                    Image(systemName: "cart.badge.plus.fill")
+                    Text("Order")
+            }
+        }.accentColor(Color("brandPrimary"))
     }
 }
 
 struct WTabView_Previews: PreviewProvider {
     static var previews: some View {
-        WTabView()
+        Group {
+            WTabView()
+        }
     }
 }
