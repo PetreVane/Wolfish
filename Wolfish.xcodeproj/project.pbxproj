@@ -13,6 +13,7 @@
 		0BA6A196256FC082005A22DE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA6A195256FC082005A22DE /* Preview Assets.xcassets */; };
 		0BA6A198256FC082005A22DE /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA6A197256FC082005A22DE /* Persistence.swift */; };
 		0BA6A19B256FC082005A22DE /* Wolfish.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0BA6A199256FC082005A22DE /* Wolfish.xcdatamodeld */; };
+		0BA6A1AC256FD967005A22DE /* WTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA6A1AB256FD967005A22DE /* WTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		0BA6A197256FC082005A22DE /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		0BA6A19A256FC082005A22DE /* Wolfish.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wolfish.xcdatamodel; sourceTree = "<group>"; };
 		0BA6A19C256FC082005A22DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0BA6A1AB256FD967005A22DE /* WTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,11 +59,9 @@
 			isa = PBXGroup;
 			children = (
 				0BA6A18E256FC081005A22DE /* WolfishApp.swift */,
-				0BA6A190256FC081005A22DE /* ContentView.swift */,
-				0BA6A192256FC082005A22DE /* Assets.xcassets */,
-				0BA6A197256FC082005A22DE /* Persistence.swift */,
-				0BA6A19C256FC082005A22DE /* Info.plist */,
-				0BA6A199256FC082005A22DE /* Wolfish.xcdatamodeld */,
+				0BA6A1A5256FD6A5005A22DE /* Models */,
+				0BA6A1A8256FD913005A22DE /* Views */,
+				0BA6A1A3256FD67E005A22DE /* Resources */,
 				0BA6A194256FC082005A22DE /* Preview Content */,
 			);
 			path = Wolfish;
@@ -73,6 +73,41 @@
 				0BA6A195256FC082005A22DE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0BA6A1A3256FD67E005A22DE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0BA6A192256FC082005A22DE /* Assets.xcassets */,
+				0BA6A19C256FC082005A22DE /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0BA6A1A5256FD6A5005A22DE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0BA6A1A6256FD8F3005A22DE /* Persistence */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0BA6A1A6256FD8F3005A22DE /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				0BA6A199256FC082005A22DE /* Wolfish.xcdatamodeld */,
+				0BA6A197256FC082005A22DE /* Persistence.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		0BA6A1A8256FD913005A22DE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0BA6A190256FC081005A22DE /* ContentView.swift */,
+				0BA6A1AB256FD967005A22DE /* WTabView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +183,7 @@
 				0BA6A198256FC082005A22DE /* Persistence.swift in Sources */,
 				0BA6A191256FC081005A22DE /* ContentView.swift in Sources */,
 				0BA6A18F256FC081005A22DE /* WolfishApp.swift in Sources */,
+				0BA6A1AC256FD967005A22DE /* WTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +315,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Wolfish/Preview Content\"";
 				DEVELOPMENT_TEAM = 9W3WH25P2R;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Wolfish/Info.plist;
+				INFOPLIST_FILE = Wolfish/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -301,7 +337,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Wolfish/Preview Content\"";
 				DEVELOPMENT_TEAM = 9W3WH25P2R;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Wolfish/Info.plist;
+				INFOPLIST_FILE = Wolfish/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
