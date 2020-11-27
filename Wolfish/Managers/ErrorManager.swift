@@ -39,7 +39,7 @@ enum ErrorManager: Error {
     }
     
     private func presentAlert(withMessage message: String) -> AlertManager {
-        let alert = AlertManager(title: "Whaaat?! An error??", errorMessage: message, button: .default(Text("Dismiss")))
+        let alert = AlertManager(title: Text("Whaaat?! An error??"), errorMessage: Text(message), button: .default(Text("Dismiss")))
         return alert
     }
 }

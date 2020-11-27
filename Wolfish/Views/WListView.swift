@@ -16,16 +16,18 @@ struct WListView: View {
     var body: some View {
         NavigationView {
             List(model.items) { meal in
-                ListCell(meal: meal)
+                ListCell(model: model, meal: meal)
             }.navigationTitle("Snacks")
-        }.alert(item: $model.alert) { alert in
-            Alert(title: Text(alert.title), message: Text(alert.errorMessage), dismissButton: alert.button)
+        }
+        .alert(item: $model.alert) { alert in
+            Alert(title: alert.title, message: alert.errorMessage, dismissButton: alert.button)
         }
     }
 }
 
 struct ListCell: View {
     
+    @ObservedObject var model: WolfishViewModel
     var meal: MealItem
     
     var body: some View {
@@ -41,7 +43,7 @@ struct ListCell: View {
                 Text("£ \(meal.price, specifier: "%.1f")")
                     .foregroundColor(.secondary).fontWeight(.semibold)
             }.padding(.leading)
-        }
+        }.onAppear { model.fetchImages(forItem: meal.imageURL) }
     }
 }
 

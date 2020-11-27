@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 
 final class WolfishViewModel: ObservableObject {
@@ -13,7 +14,7 @@ final class WolfishViewModel: ObservableObject {
     @ObservedObject var networkManager = NetworkManager.sharedInstance
     @Published var items = [MealItem]()
     @Published var alert: AlertManager?
-    @Published var images = [Image]()
+    @Published var images: Dictionary<String, UIImage> = [:]
     
     init() { self.items = fetchItems() }
     
@@ -29,7 +30,19 @@ final class WolfishViewModel: ObservableObject {
         return items
     }
     
-    func fetchImages() {
-//        networkManager.fetchImageFor(item: <#T##String#>, completion: <#T##(Result<UIImage, ErrorManager>) -> Void#>)
+    func fetchImages(forItem itemURL: String) {
+        networkManager.fetchImageFor(item: itemURL) { [self] result in
+            switch result {
+                case .failure(let error): DispatchQueue.main.async { self.alert = error.presentAlert }
+            case .success(let image): DispatchQueue.main.async { self.images.updateValue(image, forKey: itemURL) }
+            }
+        }
+    }
+    
+    func showImage(forItem item: MealItem) -> UIImage? {
+        let imageURL = item.imageURL
+        var returnedImage: UIImage?
+        if let image = self.images[imageURL] { returnedImage = image }
+        return returnedImage
     }
 }
