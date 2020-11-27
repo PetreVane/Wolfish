@@ -11,17 +11,15 @@ import UIKit
 struct WListView: View {
     
     @StateObject var model = WolfishViewModel()
-   
-    
-    init() {
-        customNavigationBar()
-    }
+    init() { customNavigationBar() }
     
     var body: some View {
         NavigationView {
             List(model.items) { meal in
                 ListCell(meal: meal)
             }.navigationTitle("Snacks")
+        }.alert(item: $model.alert) { alert in
+            Alert(title: Text(alert.title), message: Text(alert.errorMessage), dismissButton: alert.button)
         }
     }
 }

@@ -8,35 +8,50 @@
 import UIKit
 
 
-class NetworkManager: ObservableObject {
+final class NetworkManager: ObservableObject {
     
     static let sharedInstance = NetworkManager()
     private let resourceURL = URL(string: "https://seanallen-course-backend.herokuapp.com/swiftui-fundamentals/appetizers")
-    @Published var items = [MealItem]()
     
     private init() {}
     
-    func getItems() {
-        print("Get items called")
+    func fetchItems(completion: @escaping (Result<[MealItem], ErrorManager>) -> Void) {
+    
+        guard let url = resourceURL else { completion(.failure(.invalidURL)); return }
+    
         let session = URLSession.shared
         
-        session.dataTask(with: resourceURL!) {[weak self] (data, response, error) in
+        session.dataTask(with: url) {[weak self] (data, response, error) in
             
-            guard let self = self else { return }
-            guard error == nil else { return }
-            guard let receivedData = data else { return }
+            guard self != nil else { return }
+            guard error == nil else { completion(.failure(.unknownError)); return }
+            guard let receivedResponse = response as? HTTPURLResponse,
+                  receivedResponse.statusCode == 200 else { completion(.failure(.invalidNetworkResponse)); return }
+            guard let receivedData = data else { completion(.failure(.invalidData)); return }
             let decoder = JSONDecoder()
             
             do {
                 let decodedData = try decoder.decode(Meal.self, from: receivedData)
-                self.items = decodedData.request
-                let mealExample = decodedData.request[0].name
-                print("Your meal is called \(mealExample)")
-                print("Published items has \(self.items.count) objects in it")
+                completion(.success(decodedData.request))
                 
-            } catch (let error){
-                print("Network manager error: \(error.localizedDescription)")
-            }
+            } catch { completion(.failure(.invalidJsonParsing))}
+        }.resume()
+    }
+    
+    func fetchImageFor(item itemURL: String, completion: @escaping (Result<UIImage, ErrorManager>) -> Void) {
+        guard let url = URL(string:itemURL) else { completion(.failure(.invalidURL)); return }
+        
+        let session = URLSession.shared
+        session.dataTask(with: url) {[weak self] (data, response, error) in
+            
+            guard self != nil else { return }
+            guard error == nil else { completion(.failure(.unknownError)); return }
+            guard let receivedResponse = response as? HTTPURLResponse,
+                  receivedResponse.statusCode == 200 else { completion(.failure(.invalidNetworkResponse)); return }
+            guard let receivedData = data else { completion(.failure(.invalidData)); return }
+            guard let image = UIImage(data: receivedData) else { completion(.failure(.failedDecodingImage)); return }
+            completion(.success(image))
+            
         }.resume()
     }
 }
