@@ -10,11 +10,11 @@ import Foundation
 
 struct Meal: Decodable {
     
-    let request: [MealDescription]
+    let request: [MealItem]
 }
 
 // MARK: - Request
-struct MealDescription: Decodable, Identifiable {
+struct MealItem: Decodable, Identifiable {
     let requestDescription: String
     let imageURL: String
     let id: Int
@@ -31,7 +31,7 @@ struct MealDescription: Decodable, Identifiable {
 
 struct MockData {
     
-    static let sampleMeal = MealDescription(
+    static let sampleMeal = MealItem(
         requestDescription: "Test description",
         imageURL: "Image URL",
         id: 75,

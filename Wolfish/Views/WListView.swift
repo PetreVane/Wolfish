@@ -10,21 +10,25 @@ import UIKit
 
 struct WListView: View {
     
-    init() { customNavigationBar() }
+    @StateObject var model = WolfishViewModel()
+   
+    
+    init() {
+        customNavigationBar()
+    }
     
     var body: some View {
         NavigationView {
-            List(MockData.meals) { meal in
+            List(model.items) { meal in
                 ListCell(meal: meal)
             }.navigationTitle("Snacks")
         }
-        
     }
 }
 
 struct ListCell: View {
     
-    var meal: MealDescription
+    var meal: MealItem
     
     var body: some View {
         HStack {

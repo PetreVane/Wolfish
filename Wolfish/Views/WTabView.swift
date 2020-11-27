@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct WTabView: View {
+    
     var body: some View {
         TabView {
             WListView()

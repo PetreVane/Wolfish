@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B859348257109AD00523360 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B859347257109AD00523360 /* NetworkManager.swift */; };
+		0B85934D25710DE400523360 /* WolfishViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B85934C25710DE400523360 /* WolfishViewModel.swift */; };
 		0BA6A18F256FC081005A22DE /* WolfishApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA6A18E256FC081005A22DE /* WolfishApp.swift */; };
 		0BA6A191256FC081005A22DE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA6A190256FC081005A22DE /* ContentView.swift */; };
 		0BA6A193256FC082005A22DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA6A192256FC082005A22DE /* Assets.xcassets */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B859347257109AD00523360 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		0B85934C25710DE400523360 /* WolfishViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WolfishViewModel.swift; sourceTree = "<group>"; };
 		0BA6A18B256FC081005A22DE /* Wolfish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wolfish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA6A18E256FC081005A22DE /* WolfishApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WolfishApp.swift; sourceTree = "<group>"; };
 		0BA6A190256FC081005A22DE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,6 +53,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B8593462571099900523360 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0B859347257109AD00523360 /* NetworkManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		0B85934B25710DB400523360 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0B85934C25710DE400523360 /* WolfishViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		0BA6A182256FC081005A22DE = {
 			isa = PBXGroup;
 			children = (
@@ -68,10 +88,12 @@
 		0BA6A18D256FC081005A22DE /* Wolfish */ = {
 			isa = PBXGroup;
 			children = (
-				0BA6A1B7256FE2D4005A22DE /* Utilities */,
 				0BA6A18E256FC081005A22DE /* WolfishApp.swift */,
+				0B8593462571099900523360 /* Managers */,
+				0BA6A1B7256FE2D4005A22DE /* Utilities */,
 				0BA6A1A5256FD6A5005A22DE /* Models */,
 				0BA6A1A8256FD913005A22DE /* Views */,
+				0B85934B25710DB400523360 /* ViewModel */,
 				0BA6A1A3256FD67E005A22DE /* Resources */,
 				0BA6A194256FC082005A22DE /* Preview Content */,
 			);
@@ -214,10 +236,12 @@
 				0BA6A1AF256FD9E9005A22DE /* WListView.swift in Sources */,
 				0BA6A1B5256FDA03005A22DE /* WOrderView.swift in Sources */,
 				0BA6A19B256FC082005A22DE /* Wolfish.xcdatamodeld in Sources */,
+				0B859348257109AD00523360 /* NetworkManager.swift in Sources */,
 				0BA6A1B9256FE2F2005A22DE /* Struct+Extension.swift in Sources */,
 				0BA6A198256FC082005A22DE /* Persistence.swift in Sources */,
 				0BA6A1B2256FD9F4005A22DE /* WAccountView.swift in Sources */,
 				0BA6A191256FC081005A22DE /* ContentView.swift in Sources */,
+				0B85934D25710DE400523360 /* WolfishViewModel.swift in Sources */,
 				0BA6A18F256FC081005A22DE /* WolfishApp.swift in Sources */,
 				0BA6A1AC256FD967005A22DE /* WTabView.swift in Sources */,
 			);
