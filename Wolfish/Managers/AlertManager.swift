@@ -10,8 +10,8 @@ import SwiftUI
 
 struct AlertManager: Identifiable {
     let id = UUID()
-    let title: String
-    let errorMessage: String
+    let title: Text
+    let errorMessage: Text
     let button: Alert.Button
     
 }
