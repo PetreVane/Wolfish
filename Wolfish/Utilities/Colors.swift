@@ -5,4 +5,9 @@
 //  Created by Petre Vane on 30/11/2020.
 //
 
-import Foundation
+import SwiftUI
+
+
+enum Colors {
+    static let primary = Color("brandPrimary")
+}

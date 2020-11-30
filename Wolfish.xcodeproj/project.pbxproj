@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B3C380025753CEE005A91D6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C37FF25753CEE005A91D6 /* Colors.swift */; };
 		0B859348257109AD00523360 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B859347257109AD00523360 /* NetworkManager.swift */; };
 		0B85934D25710DE400523360 /* WolfishViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B85934C25710DE400523360 /* WolfishViewModel.swift */; };
 		0B8593502571279900523360 /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B85934F2571279900523360 /* ErrorManager.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B3C37FF25753CEE005A91D6 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		0B859347257109AD00523360 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0B85934C25710DE400523360 /* WolfishViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WolfishViewModel.swift; sourceTree = "<group>"; };
 		0B85934F2571279900523360 /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				0BA6A1B8256FE2F2005A22DE /* Struct+Extension.swift */,
+				0B3C37FF25753CEE005A91D6 /* Colors.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				0BA6A1B9256FE2F2005A22DE /* Struct+Extension.swift in Sources */,
 				0BA6A198256FC082005A22DE /* Persistence.swift in Sources */,
 				0B85935725715B4400523360 /* LoadingView.swift in Sources */,
+				0B3C380025753CEE005A91D6 /* Colors.swift in Sources */,
 				0BA6A1B2256FD9F4005A22DE /* WAccountView.swift in Sources */,
 				0BA6A191256FC081005A22DE /* ContentView.swift in Sources */,
 				0B85934D25710DE400523360 /* WolfishViewModel.swift in Sources */,

@@ -8,13 +8,35 @@
 import SwiftUI
 
 struct LoadingView: View {
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ProgressView("Hold your horses ...")
+            .progressViewStyle(MyProgressStyle(color: Color(.tertiarySystemBackground)))
+            .shadow(radius: 10)
+            .foregroundColor(Color(.label))
+            .font(.some(.system(size: 20, weight: .medium, design: .rounded)))
+            
+    }
+    
+}
+
+struct MyProgressStyle: ProgressViewStyle {
+    let color: Color
+    
+    func makeBody(configuration: Configuration) -> some View {
+        ProgressView(configuration)
+            .padding(30)
+            .background(RoundedRectangle(cornerRadius: 15)
+            .fill(color))
     }
 }
 
+
 struct LoadingView_Previews: PreviewProvider {
     static var previews: some View {
-        LoadingView()
+        Group {
+            LoadingView().preferredColorScheme(.light)
+            LoadingView().preferredColorScheme(.dark)
+        }
     }
 }
