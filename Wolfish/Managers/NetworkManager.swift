@@ -12,6 +12,7 @@ final class NetworkManager: ObservableObject {
     
     static let sharedInstance = NetworkManager()
     private let resourceURL = URL(string: "https://seanallen-course-backend.herokuapp.com/swiftui-fundamentals/appetizers")
+    private let cache = NSCache<NSString, UIImage>()
     
     private init() {}
     
@@ -21,9 +22,8 @@ final class NetworkManager: ObservableObject {
     
         let session = URLSession.shared
         
-        session.dataTask(with: url) {[weak self] (data, response, error) in
+        session.dataTask(with: url) { (data, response, error) in
             
-            guard self != nil else { return }
             guard error == nil else { completion(.failure(.unknownError)); return }
             guard let receivedResponse = response as? HTTPURLResponse,
                   receivedResponse.statusCode == 200 else { completion(.failure(.invalidNetworkResponse)); return }
@@ -38,19 +38,23 @@ final class NetworkManager: ObservableObject {
         }.resume()
     }
     
-    func fetchImageFor(item itemURL: String, completion: @escaping (Result<UIImage, ErrorManager>) -> Void) {
-        guard let url = URL(string:itemURL) else { completion(.failure(.invalidURL)); return }
+    func fetchImageFrom(stringURL: String, completion: @escaping (UIImage?) -> Void) {
+        
+        guard let url = URL(string: stringURL) else { completion(nil); return }
+        let cacheKey = NSString(string: stringURL)
+        
+        if let cachedImage = cache.object(forKey: cacheKey) {
+            completion(cachedImage)
+            return
+        }
         
         let session = URLSession.shared
-        session.dataTask(with: url) {[weak self] (data, response, error) in
+        session.dataTask(with: url) {[self] (data, response, error) in
             
-            guard self != nil else { return }
-            guard error == nil else { completion(.failure(.unknownError)); return }
-            guard let receivedResponse = response as? HTTPURLResponse,
-                  receivedResponse.statusCode == 200 else { completion(.failure(.invalidNetworkResponse)); return }
-            guard let receivedData = data else { completion(.failure(.invalidData)); return }
-            guard let image = UIImage(data: receivedData) else { completion(.failure(.failedDecodingImage)); return }
-            completion(.success(image))
+            guard let receivedData = data else { completion(nil); return }
+            guard let networkImage = UIImage(data: receivedData) else { completion(nil); return }
+            self.cache.setObject(networkImage, forKey: cacheKey)
+            completion(networkImage)
             
         }.resume()
     }
