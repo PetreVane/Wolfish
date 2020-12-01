@@ -15,34 +15,24 @@ final class WolfishViewModel: ObservableObject {
     @Published var items = [MealItem]()
     @Published var alert: AlertManager?
     @Published var images: Dictionary<String, UIImage> = [:]
+    @Published var isLoading: Bool = false
     
     init() { self.items = fetchItems() }
     
     
     func fetchItems() -> [MealItem] {
+        isLoading = true
         networkManager.fetchItems() { [weak self] result in
             guard let self = self else { return }
-            switch result {
-                case .failure(let error): DispatchQueue.main.async { self.alert = error.presentAlert }
-                case .success(let items): DispatchQueue.main.async { self.items = items }
+            DispatchQueue.main.async {
+                self.isLoading = false
+                switch result {
+                    case .failure(let error): self.alert = error.presentAlert;
+                    case .success(let items):  self.items = items;
+                }
             }
         }
         return items
     }
     
-    func fetchImages(forItem itemURL: String) {
-        networkManager.fetchImageFor(item: itemURL) { [self] result in
-            switch result {
-                case .failure(let error): DispatchQueue.main.async { self.alert = error.presentAlert }
-            case .success(let image): DispatchQueue.main.async { self.images.updateValue(image, forKey: itemURL) }
-            }
-        }
-    }
-    
-    func showImage(forItem item: MealItem) -> UIImage? {
-        let imageURL = item.imageURL
-        var returnedImage: UIImage?
-        if let image = self.images[imageURL] { returnedImage = image }
-        return returnedImage
-    }
 }

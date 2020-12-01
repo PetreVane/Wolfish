@@ -14,26 +14,29 @@ struct WListView: View {
     init() { customNavigationBar() }
     
     var body: some View {
-        NavigationView {
-            List(model.items) { meal in
-                ListCell(model: model, meal: meal)
-            }.navigationTitle("Snacks")
-        }
-        .alert(item: $model.alert) { alert in
-            Alert(title: alert.title, message: alert.errorMessage, dismissButton: alert.button)
+        ZStack {
+            NavigationView {
+                List(model.items) { meal in
+                    ListCell(meal: meal)
+                }.navigationTitle("Snacks")
+            }.alert(item: $model.alert) { alert in
+                Alert(title: alert.title, message: alert.errorMessage, dismissButton: alert.button)
+            }
+            if model.isLoading {
+                LoadingView()
+            }
         }
     }
 }
 
 struct ListCell: View {
     
-    @ObservedObject var model: WolfishViewModel
     var meal: MealItem
+    @State private var remoteImage: Image? = nil
     
     var body: some View {
         HStack {
-            Image("asian-flank-steak")
-                .resizable()
+            RemoteImageLoader(imageURL: meal.imageURL)
                 .frame(width: 125, height: 100, alignment: .center)
                 .aspectRatio(contentMode: .fit)
                 .cornerRadius(10)
@@ -43,7 +46,7 @@ struct ListCell: View {
                 Text("£ \(meal.price, specifier: "%.1f")")
                     .foregroundColor(.secondary).fontWeight(.semibold)
             }.padding(.leading)
-        }.onAppear { model.fetchImages(forItem: meal.imageURL) }
+        }
     }
 }
 
