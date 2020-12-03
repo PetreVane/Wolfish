@@ -13,5 +13,4 @@ struct AlertManager: Identifiable {
     let title: Text
     let errorMessage: Text
     let button: Alert.Button
-    
 }
