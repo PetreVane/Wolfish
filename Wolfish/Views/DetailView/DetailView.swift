@@ -53,19 +53,7 @@ struct DetailView: View {
         .background(Color(.tertiarySystemBackground))
         .cornerRadius(25)
         .shadow(color: Color(.label), radius: 35, x: 0, y: 0)
-        .overlay(Button(action: {
-            isDetailViewPresented = false
-        }, label: {
-            ZStack {
-                Circle()
-                    .frame(width: 33, height: 33)
-                    .foregroundColor(Color(.secondaryLabel))
-                
-                Image(systemName: "xmark.circle.fill")
-                    .frame(width: 50, height: 50)
-                    .foregroundColor(Colors.primary)
-            }
-        }), alignment: .topTrailing)
+        .overlay(WDismissButton(isDetailViewPresented: $isDetailViewPresented), alignment: .topTrailing)
     }
 }
 

@@ -11,8 +11,7 @@ import UIKit
 struct WListView: View {
     
     @StateObject var model = WolfishViewModel()
-    @State private var presentDetailView = false
-    @State private var mealItem: MealItem?
+
     
     init() { customNavigationBar() }
     
@@ -26,7 +25,7 @@ struct WListView: View {
                         }
                 }
                 .navigationTitle("Snacks")
-                .disabled(presentDetailView ? true : false)
+                .disabled(model.presentDetailView ? true : false)
                 
             }
             .alert(item: $model.alert) { alert in
