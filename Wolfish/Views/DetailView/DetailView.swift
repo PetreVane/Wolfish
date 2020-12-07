@@ -32,20 +32,10 @@ struct DetailView: View {
                     
                 }.padding()
                 
-                Button(action: {
-                    print("Button pressed")
-                    
-                }, label: {
-                    Text("£ \(meal.price, specifier: "%.1f") - Add to basket ")
-                        .fontWeight(.semibold)
-                        .frame(width: 300, height: 50, alignment: .center)
-                        .background(Colors.primary)
-                        .foregroundColor(.white)
-                        .cornerRadius(15)
-                        .shadow(radius: 10)
-                })
+                WOrderButton(price: "£ \(meal.price, specifier: "%.1f") - Add to order list")
                 
             }
+            
             Spacer()
             
         }

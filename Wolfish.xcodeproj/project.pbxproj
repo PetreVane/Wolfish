@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B277702257E985400994CC2 /* WDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B277701257E985400994CC2 /* WDismissButton.swift */; };
+		0B277707257E9A3200994CC2 /* WOrderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B277706257E9A3200994CC2 /* WOrderButton.swift */; };
 		0B3C380025753CEE005A91D6 /* ProjectConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C37FF25753CEE005A91D6 /* ProjectConstants.swift */; };
 		0B3C380425755318005A91D6 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C380325755318005A91D6 /* ImageLoader.swift */; };
 		0B859348257109AD00523360 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B859347257109AD00523360 /* NetworkManager.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		0B277701257E985400994CC2 /* WDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDismissButton.swift; sourceTree = "<group>"; };
+		0B277706257E9A3200994CC2 /* WOrderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WOrderButton.swift; sourceTree = "<group>"; };
 		0B3C37FF25753CEE005A91D6 /* ProjectConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectConstants.swift; sourceTree = "<group>"; };
 		0B3C380325755318005A91D6 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		0B859347257109AD00523360 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -67,6 +69,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B277705257E9A1700994CC2 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				0B277701257E985400994CC2 /* WDismissButton.swift */,
+				0B277706257E9A3200994CC2 /* WOrderButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 		0B8593462571099900523360 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +221,7 @@
 		0BA6A1A8256FD913005A22DE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0B277705257E9A1700994CC2 /* Buttons */,
 				0B85935525715B3300523360 /* Loading */,
 				0B91D5AF2579622000F34B6E /* DefaultView */,
 				0B91D5A8257961C300F34B6E /* TabView */,
@@ -217,7 +229,6 @@
 				0B91D5B12579635A00F34B6E /* DetailView */,
 				0B91D5AB257961E300F34B6E /* AccountView */,
 				0B91D5AD257961F800F34B6E /* OrderView */,
-				0B277701257E985400994CC2 /* WDismissButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -325,6 +336,7 @@
 				0B3C380425755318005A91D6 /* ImageLoader.swift in Sources */,
 				0BA6A191256FC081005A22DE /* ContentView.swift in Sources */,
 				0B85934D25710DE400523360 /* WolfishViewModel.swift in Sources */,
+				0B277707257E9A3200994CC2 /* WOrderButton.swift in Sources */,
 				0BA6A18F256FC081005A22DE /* WolfishApp.swift in Sources */,
 				0B85935325713F9900523360 /* AlertManager.swift in Sources */,
 				0BA6A1AC256FD967005A22DE /* WTabView.swift in Sources */,
