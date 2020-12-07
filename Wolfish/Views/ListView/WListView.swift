@@ -11,6 +11,9 @@ import UIKit
 struct WListView: View {
     
     @StateObject var model = WolfishViewModel()
+    @State private var presentDetailView = false
+    @State private var mealItem: MealItem?
+    
     init() { customNavigationBar() }
     
     var body: some View {
@@ -18,10 +21,23 @@ struct WListView: View {
             NavigationView {
                 List(model.items) { meal in
                     ListCell(meal: meal)
-                }.navigationTitle("Snacks")
-            }.alert(item: $model.alert) { alert in
+                        .onTapGesture {
+                            model.mealItem = meal
+                        }
+                }
+                .navigationTitle("Snacks")
+                .disabled(presentDetailView ? true : false)
+                
+            }
+            .alert(item: $model.alert) { alert in
                 Alert(title: alert.title, message: alert.errorMessage, dismissButton: alert.button)
             }
+            .blur(radius: model.presentDetailView ? 10 : 0)
+            
+            if model.presentDetailView {
+                DetailView(meal: model.mealItem!, isDetailViewPresented: $model.presentDetailView)
+            }
+            
             if model.isLoading {
                 LoadingView()
             }
@@ -55,3 +71,4 @@ struct WListView_Previews: PreviewProvider {
         WListView()
     }
 }
+

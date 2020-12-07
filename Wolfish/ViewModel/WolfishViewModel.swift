@@ -14,9 +14,14 @@ final class WolfishViewModel: ObservableObject {
     @ObservedObject var networkManager = NetworkManager.sharedInstance
     @Published var items = [MealItem]()
     @Published var alert: AlertManager?
-    @Published var images: Dictionary<String, UIImage> = [:]
-    @Published var isLoading: Bool = false
+    @Published var mealItem: MealItem? {
+        didSet {
+            presentDetailView = true
+        }
+    }
     
+    @Published var isLoading: Bool = false
+    @Published var presentDetailView: Bool = false
     init() { self.items = fetchItems() }
     
     

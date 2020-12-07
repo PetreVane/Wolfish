@@ -9,21 +9,21 @@ import SwiftUI
 
 struct DetailView: View {
     
-    @Binding var meal: MealItem
+    var meal: MealItem
+    @Binding var isDetailViewPresented: Bool
     
     var body: some View {
         VStack {
-            Image("asian-flank-steak")
-                .resizable()
+            RemoteImageLoader(imageURL: meal.imageURL)
                 .frame(width: 350, height: 290, alignment: .center)
                 .aspectRatio(contentMode: .fill)
             
             Spacer()
             
             VStack {
-                Text("Chicken wings")
+                Text(meal.name)
                     .font(.system(size: 25, weight: .regular, design: .rounded))
-
+                
                 HStack(spacing: 50) {
                     
                     NutritionalInfo(name: "Calories", values: "\(meal.calories)")
@@ -54,7 +54,7 @@ struct DetailView: View {
         .cornerRadius(25)
         .shadow(color: Color(.label), radius: 35, x: 0, y: 0)
         .overlay(Button(action: {
-            print("Dismiss DetailView pressed")
+            isDetailViewPresented = false
         }, label: {
             ZStack {
                 Circle()
@@ -72,10 +72,9 @@ struct DetailView: View {
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            DetailView(meal: .constant(MockData.sampleMeal))
+            DetailView(meal: MockData.sampleMeal, isDetailViewPresented: .constant(true))
                 .preferredColorScheme(.light)
-            DetailView(meal: .constant(MockData.sampleMeal))
-                .preferredColorScheme(.dark)
+
         }
     }
 }
