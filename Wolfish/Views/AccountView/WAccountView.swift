@@ -11,38 +11,37 @@ struct WAccountView: View {
     
     init() { customNavigationBar() }
     @StateObject var model = WAccountViewModel()
-
-
-    
     
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("Personal info")) {
                     
-                    TextField("First name", text: $model.firstName)
+                    TextField("First name", text: $model.user.firstName)
                         .disableAutocorrection(true)
                     
-                    TextField("Last name", text: $model.lastName)
+                    TextField("Last name", text: $model.user.lastName)
                         .disableAutocorrection(true)
                     
-                    TextField("Email address", text: $model.emailAddress)
+                    TextField("Email address", text: $model.user.emailAddress)
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                     
-                    DatePicker("Birthdate", selection: $model.birthDate, displayedComponents: .date)
+                    DatePicker("Birthdate", selection: $model.user.birthDate, displayedComponents: .date)
             
                 }
                 
                 Section(header: Text("Additional info")) {
-                    Toggle("Extra napkins", isOn: $model.extraNapkins)
-                    Toggle("Frequent refill", isOn: $model.frequentRefill)
+                    Toggle("Extra napkins", isOn: $model.user.extraNapkins)
+                    Toggle("Frequent refill", isOn: $model.user.frequentRefill)
                 } .toggleStyle(SwitchToggleStyle(tint: Colors.primary))
                 
                 Section() {
                     Button(action: {
-                        model.printValues()
+                        if model.isFormValid {
+                            model.saveUserDetails()
+                        } 
                     }, label: {
                         
                         HStack(alignment: .center) {
@@ -54,8 +53,13 @@ struct WAccountView: View {
                 }
                 
                     
-            }.navigationTitle("Account")
+            }
+            .navigationTitle("Account")
             .foregroundColor(Colors.primary)
+            .alert(item: $model.alert) { alert in
+                Alert(title: alert.title, message: alert.errorMessage, dismissButton: alert.button)
+            }
+            .onAppear { model.retrieveUserDetails() }
         }
     }
 }

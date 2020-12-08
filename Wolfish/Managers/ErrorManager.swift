@@ -16,7 +16,10 @@ enum ErrorManager: Error {
     case invalidJsonParsing
     case failedDecodingImage
     case missingInput
+    case wrongFormattedEmailAddress
+    case successEncodingData
     
+    // this is for debugging purposses
     var description: String {
         switch self {
             case .invalidURL: return "The URL you provided is invalid"
@@ -26,23 +29,33 @@ enum ErrorManager: Error {
             case .unknownError: return "Unknown error has occurred"
             case.failedDecodingImage: return "Image cannot be decoded from received data"
             case .missingInput: return "One of the Account input fields is missing some input"
+            case .wrongFormattedEmailAddress: return " Your email address is not correct. Try again, please."
+            default: return "Success saving user data in AppStorage"
         }
     }
     
+    // this is for surfacing alerts
     var presentAlert: AlertManager {
         switch self {
             case .unknownError: return presentAlert(withMessage: "Are you sure you're connected to Internet?")
             case .invalidURL: return presentAlert(withMessage: "There is something wrong with the URL where Meals are hosted")
             case .invalidNetworkResponse: return presentAlert(withMessage: "There might be something wrong with the remote server, where Meals are hosted")
-            case .invalidJsonParsing: return presentAlert(withMessage: "You shouldn't see this Error popping out. There is nothing you can do about it")
-            case.invalidData: return presentAlert(withMessage: "A hacker has intercepted and currupted our Data! Unbelievable!")
+            case .invalidJsonParsing: return presentAlert(withMessage: "An error has occured while trying to retrieve your data. Try again later.")
+            case .invalidData: return presentAlert(withMessage: "A hacker has intercepted and currupted our Data! Unbelievable!")
             case .missingInput: return presentAlert(withMessage: "Make sure you add your full name, email address and birth date. These details are required for ordering purposes")
+            case .wrongFormattedEmailAddress: return presentAlert(withMessage: "Your email address does not appear to be correct. Try again, please.")
+            case .successEncodingData: return presentInfo(withMessage: "Your details have been successfully saved on your phone 👍")
             default: return presentAlert(withMessage: "This is an error and you can do Nothing about it. So, get used with it!")
         }
     }
     
     private func presentAlert(withMessage message: String) -> AlertManager {
-        let alert = AlertManager(title: Text("Whaaat?! An error??"), errorMessage: Text(message), button: .default(Text("Dismiss")))
+        let alert = AlertManager(title: Text("What, an error??"), errorMessage: Text(message), button: .default(Text("Dismiss")))
+        return alert
+    }
+    
+    private func presentInfo(withMessage message: String) -> AlertManager {
+        let alert = AlertManager(title: Text("Success"), errorMessage: Text(message), button: .default(Text("I'm fine with that")))
         return alert
     }
 }

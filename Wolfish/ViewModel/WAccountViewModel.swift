@@ -9,24 +9,48 @@ import SwiftUI
 
 class WAccountViewModel: ObservableObject {
     
-    @Published var firstName = ""
-    @Published var lastName = ""
-    @Published var emailAddress = ""
-    @Published var birthDate = Date()
-    @Published var extraNapkins = false
-    @Published var frequentRefill = false
+    @AppStorage("user") private var userData: Data?
+    @Published var user = User()
     @Published var alert: AlertManager?
     
     var isFormValid: Bool {
-        guard !firstName.isEmpty && !lastName.isEmpty && !emailAddress.isEmpty else  { return false }
-        guard emailAddress.isValidEmail else { return false }
-        
+        guard !user.firstName.isEmpty && !user.lastName.isEmpty && !user.emailAddress.isEmpty else  { self.alert = presentAlert(.missingInput); return false }
+        guard user.emailAddress.isValidEmail else {self.alert = presentAlert(.wrongFormattedEmailAddress); return false }
         return true
     }
-    func printValues() {
-        print("Your first name is \(firstName)")
-        print("Your last name is \(lastName)")
-        print("Your email is \(emailAddress)")
-        print("Your birthdate name is \(birthDate)")
+    
+    
+    /// Saves user details to UserDefaults (AppStorage in swiftUI)
+    func saveUserDetails() {
+        let encoder = JSONEncoder()
+        
+        do {
+            let encodedData = try encoder.encode(user)
+            userData = encodedData
+            self.alert = presentAlert(.successEncodingData)
+            
+        } catch {
+            print("Errors while saving data to UserDefaults")
+        }
+    }
+    
+    /// Retrieves user details from UserDefaults (AppStorage in swiftUI)
+    func retrieveUserDetails() {
+        guard let userData = userData else { return }
+        let decoder = JSONDecoder()
+        
+        do {
+            let decodedData = try decoder.decode(User.self, from: userData)
+            user = decodedData
+            
+        } catch {
+            self.alert = presentAlert(.invalidJsonParsing)
+        }
+    }
+    
+
+    private func presentAlert(_ error: ErrorManager) -> AlertManager? {
+        let alert = error.presentAlert
+        return alert
     }
 }
