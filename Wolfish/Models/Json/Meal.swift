@@ -34,12 +34,42 @@ struct MockData {
     static let sampleMeal = MealItem(
         requestDescription: "Test description",
         imageURL: "Image URL",
-        id: 75,
-        price: 25.5,
+        id: 000,
+        price: 15.5,
         carbs: 75,
         protein: 50,
         calories: 250,
         name: "Yummy pancakes")
     
-    static let meals = [sampleMeal, sampleMeal, sampleMeal, sampleMeal, sampleMeal, sampleMeal]
+    static let sampleMeal1 = MealItem(
+        requestDescription: "Test description",
+        imageURL: "Image URL",
+        id: 001,
+        price: 5.5,
+        carbs: 75,
+        protein: 50,
+        calories: 250,
+        name: "Candies")
+    
+    static let sampleMeal2 = MealItem(
+        requestDescription: "Test description",
+        imageURL: "Image URL",
+        id: 002,
+        price: 30.5,
+        carbs: 75,
+        protein: 50,
+        calories: 250,
+        name: "Fried potatoes")
+    
+    static let sampleMeal3 = MealItem(
+        requestDescription: "Test description",
+        imageURL: "Image URL",
+        id: 003,
+        price: 25.5,
+        carbs: 75,
+        protein: 50,
+        calories: 250,
+        name: "Meat balls")
+    
+    static let meals = [sampleMeal, sampleMeal1, sampleMeal2, sampleMeal3]
 }

@@ -10,14 +10,24 @@ import SwiftUI
 struct WOrderView: View {
     
     init() { customNavigationBar() }
-    
+    @State private var meals = MockData.meals
     
     var body: some View {
         NavigationView {
-            Text("Order View" )
-                .navigationTitle("Orders")
+            VStack {
+                List {
+                    ForEach(meals) { mealItem in
+                        ListCell(meal: mealItem)
+                    }
+                    .onDelete(perform: { indexSet in
+                        meals.remove(atOffsets: indexSet)
+                    })
+                }.listStyle(InsetGroupedListStyle())
+      
+                WOrderButton(price: "Place order").padding(.bottom, 25)
+            }
+            .navigationTitle("Orders")
         }
-        
     }
 }
 

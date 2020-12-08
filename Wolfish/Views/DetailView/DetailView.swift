@@ -11,6 +11,7 @@ struct DetailView: View {
     
     var meal: MealItem
     @Binding var isDetailViewPresented: Bool
+
     
     var body: some View {
         VStack {
@@ -33,7 +34,6 @@ struct DetailView: View {
                 }.padding()
                 
                 WOrderButton(price: "£ \(meal.price, specifier: "%.1f") - Add to order list")
-                
             }
             
             Spacer()
