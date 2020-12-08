@@ -10,12 +10,8 @@ import SwiftUI
 struct WAccountView: View {
     
     init() { customNavigationBar() }
-    @State private var firstName = ""
-    @State private var lastName = ""
-    @State private var emailAddress = ""
-    @State private var birthDate = Date()
-    @State private var extraNapkins = false
-    @State private var frequentRefill = false
+    @StateObject var model = WAccountViewModel()
+
 
     
     
@@ -24,29 +20,29 @@ struct WAccountView: View {
             Form {
                 Section(header: Text("Personal info")) {
                     
-                    TextField("First name", text: $firstName)
+                    TextField("First name", text: $model.firstName)
                         .disableAutocorrection(true)
                     
-                    TextField("Last name", text: $lastName)
+                    TextField("Last name", text: $model.lastName)
                         .disableAutocorrection(true)
                     
-                    TextField("Email address", text: $emailAddress)
+                    TextField("Email address", text: $model.emailAddress)
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                     
-                    DatePicker("Birthdate", selection: $birthDate, displayedComponents: .date)
+                    DatePicker("Birthdate", selection: $model.birthDate, displayedComponents: .date)
             
                 }
                 
                 Section(header: Text("Additional info")) {
-                    Toggle("Extra napkins", isOn: $extraNapkins)
-                    Toggle("Frequent refill", isOn: $frequentRefill)
+                    Toggle("Extra napkins", isOn: $model.extraNapkins)
+                    Toggle("Frequent refill", isOn: $model.frequentRefill)
                 } .toggleStyle(SwitchToggleStyle(tint: Colors.primary))
                 
                 Section() {
                     Button(action: {
-                        print("Values saved")
+                        model.printValues()
                     }, label: {
                         
                         HStack(alignment: .center) {

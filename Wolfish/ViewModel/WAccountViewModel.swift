@@ -9,12 +9,13 @@ import SwiftUI
 
 class WAccountViewModel: ObservableObject {
     
-   @Published var firstName = ""
-   @Published var lastName = ""
-   @Published var emailAddress = ""
-   @Published var birthDate = Date()
-   @Published var extraNapkins = false
-   @Published var frequentRefill = false
+    @Published var firstName = ""
+    @Published var lastName = ""
+    @Published var emailAddress = ""
+    @Published var birthDate = Date()
+    @Published var extraNapkins = false
+    @Published var frequentRefill = false
+    @Published var alert: AlertManager?
     
     var isFormValid: Bool {
         guard !firstName.isEmpty && !lastName.isEmpty && !emailAddress.isEmpty else  { return false }

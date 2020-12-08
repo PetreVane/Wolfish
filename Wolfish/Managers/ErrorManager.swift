@@ -15,6 +15,7 @@ enum ErrorManager: Error {
     case invalidData
     case invalidJsonParsing
     case failedDecodingImage
+    case missingInput
     
     var description: String {
         switch self {
@@ -24,6 +25,7 @@ enum ErrorManager: Error {
             case .invalidJsonParsing: return "There is an error in your JSON decoding model"
             case .unknownError: return "Unknown error has occurred"
             case.failedDecodingImage: return "Image cannot be decoded from received data"
+            case .missingInput: return "One of the Account input fields is missing some input"
         }
     }
     
@@ -34,6 +36,7 @@ enum ErrorManager: Error {
             case .invalidNetworkResponse: return presentAlert(withMessage: "There might be something wrong with the remote server, where Meals are hosted")
             case .invalidJsonParsing: return presentAlert(withMessage: "You shouldn't see this Error popping out. There is nothing you can do about it")
             case.invalidData: return presentAlert(withMessage: "A hacker has intercepted and currupted our Data! Unbelievable!")
+            case .missingInput: return presentAlert(withMessage: "Make sure you add your full name, email address and birth date. These details are required for ordering purposes")
             default: return presentAlert(withMessage: "This is an error and you can do Nothing about it. So, get used with it!")
         }
     }

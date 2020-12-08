@@ -10,7 +10,7 @@ import UIKit
 
 struct WListView: View {
     
-    @StateObject var model = WolfishViewModel()
+    @StateObject var model = WListViewModel()
 
     
     init() { customNavigationBar() }
