@@ -22,7 +22,6 @@ struct LoadingView: View {
 
 struct MyProgressStyle: ProgressViewStyle {
     let color: Color
-    
     func makeBody(configuration: Configuration) -> some View {
         ProgressView(configuration)
             .padding(30)

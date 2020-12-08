@@ -30,7 +30,7 @@
 		0BA6A1AF256FD9E9005A22DE /* WListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA6A1AE256FD9E9005A22DE /* WListView.swift */; };
 		0BA6A1B2256FD9F4005A22DE /* WAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA6A1B1256FD9F4005A22DE /* WAccountView.swift */; };
 		0BA6A1B5256FDA03005A22DE /* WOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA6A1B4256FDA03005A22DE /* WOrderView.swift */; };
-		0BA6A1B9256FE2F2005A22DE /* Struct+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA6A1B8256FE2F2005A22DE /* Struct+Extension.swift */; };
+		0BA6A1B9256FE2F2005A22DE /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA6A1B8256FE2F2005A22DE /* View+Extension.swift */; };
 		0BA6A1BE2570218D005A22DE /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA6A1BD2570218D005A22DE /* Meal.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,7 +60,7 @@
 		0BA6A1AE256FD9E9005A22DE /* WListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WListView.swift; sourceTree = "<group>"; };
 		0BA6A1B1256FD9F4005A22DE /* WAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAccountView.swift; sourceTree = "<group>"; };
 		0BA6A1B4256FDA03005A22DE /* WOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WOrderView.swift; sourceTree = "<group>"; };
-		0BA6A1B8256FE2F2005A22DE /* Struct+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Struct+Extension.swift"; sourceTree = "<group>"; };
+		0BA6A1B8256FE2F2005A22DE /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		0BA6A1BD2570218D005A22DE /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -243,7 +243,7 @@
 		0BA6A1B7256FE2D4005A22DE /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				0BA6A1B8256FE2F2005A22DE /* Struct+Extension.swift */,
+				0BA6A1B8256FE2F2005A22DE /* View+Extension.swift */,
 				0B3C37FF25753CEE005A91D6 /* ProjectConstants.swift */,
 				0B3C380325755318005A91D6 /* ImageLoader.swift */,
 				0BA31916257F8BB500F3F3B9 /* String+Extension.swift */,
@@ -337,7 +337,7 @@
 				0BA6A1B5256FDA03005A22DE /* WOrderView.swift in Sources */,
 				0BA6A19B256FC082005A22DE /* Wolfish.xcdatamodeld in Sources */,
 				0B859348257109AD00523360 /* NetworkManager.swift in Sources */,
-				0BA6A1B9256FE2F2005A22DE /* Struct+Extension.swift in Sources */,
+				0BA6A1B9256FE2F2005A22DE /* View+Extension.swift in Sources */,
 				0BA6A198256FC082005A22DE /* Persistence.swift in Sources */,
 				0B85935725715B4400523360 /* LoadingView.swift in Sources */,
 				0B3C380025753CEE005A91D6 /* ProjectConstants.swift in Sources */,

@@ -11,7 +11,7 @@ import UIKit
 final class NetworkManager: ObservableObject {
     
     static let sharedInstance = NetworkManager()
-    private let resourceURL = URL(string: "https://seanallen-course-backend.herokuapp.com/swiftui-fundamentals/appetizers")
+    private let resourceURL = URL(string: "https://some-url")
     private let cache = NSCache<NSString, UIImage>()
     
     private init() {}

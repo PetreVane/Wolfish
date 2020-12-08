@@ -11,6 +11,7 @@ import SwiftUI
 
 extension View {
     
+    /// Declares some custom properties of the SwiftUI NavigationBar
     func customNavigationBar() {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor(named: "brandPrimary")!, .font: UIFont(name: "American Typewriter Bold", size: 35)!]
