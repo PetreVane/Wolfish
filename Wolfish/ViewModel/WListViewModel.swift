@@ -1,5 +1,5 @@
 //
-//  WolfishViewModel.swift
+//  WListViewModel.swift
 //  Wolfish
 //
 //  Created by Petre Vane on 27/11/2020.
@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 
 
-final class WolfishViewModel: ObservableObject {
+final class WListViewModel: ObservableObject {
     
     @ObservedObject var networkManager = NetworkManager.sharedInstance
     @Published var items = [MealItem]()
