@@ -21,6 +21,7 @@
 		0B91D5B32579637400F34B6E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91D5B22579637400F34B6E /* DetailView.swift */; };
 		0BA31914257F891400F3F3B9 /* WAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA31913257F891400F3F3B9 /* WAccountViewModel.swift */; };
 		0BA31917257F8BB500F3F3B9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA31916257F8BB500F3F3B9 /* String+Extension.swift */; };
+		0BA34C302588F78200D56CF0 /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA34C2F2588F78200D56CF0 /* EmptyState.swift */; };
 		0BA6A18F256FC081005A22DE /* WolfishApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA6A18E256FC081005A22DE /* WolfishApp.swift */; };
 		0BA6A191256FC081005A22DE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA6A190256FC081005A22DE /* ContentView.swift */; };
 		0BA6A193256FC082005A22DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA6A192256FC082005A22DE /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 		0BA6A1B5256FDA03005A22DE /* WOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA6A1B4256FDA03005A22DE /* WOrderView.swift */; };
 		0BA6A1B9256FE2F2005A22DE /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA6A1B8256FE2F2005A22DE /* View+Extension.swift */; };
 		0BA6A1BE2570218D005A22DE /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA6A1BD2570218D005A22DE /* Meal.swift */; };
+		0BCFFCFC25878BF7004D64A5 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCFFCFB25878BF7004D64A5 /* TestView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,7 @@
 		0B91D5B22579637400F34B6E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		0BA31913257F891400F3F3B9 /* WAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAccountViewModel.swift; sourceTree = "<group>"; };
 		0BA31916257F8BB500F3F3B9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		0BA34C2F2588F78200D56CF0 /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
 		0BA6A18B256FC081005A22DE /* Wolfish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wolfish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA6A18E256FC081005A22DE /* WolfishApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WolfishApp.swift; sourceTree = "<group>"; };
 		0BA6A190256FC081005A22DE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -64,6 +67,7 @@
 		0BA6A1B4256FDA03005A22DE /* WOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WOrderView.swift; sourceTree = "<group>"; };
 		0BA6A1B8256FE2F2005A22DE /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		0BA6A1BD2570218D005A22DE /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		0BCFFCFB25878BF7004D64A5 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +166,14 @@
 			path = DetailView;
 			sourceTree = "<group>";
 		};
+		0BA34C2E2588F77000D56CF0 /* EmptyStates */ = {
+			isa = PBXGroup;
+			children = (
+				0BA34C2F2588F78200D56CF0 /* EmptyState.swift */,
+			);
+			path = EmptyStates;
+			sourceTree = "<group>";
+		};
 		0BA6A182256FC081005A22DE = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +243,8 @@
 		0BA6A1A8256FD913005A22DE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0BA34C2E2588F77000D56CF0 /* EmptyStates */,
+				0BCFFCFA25878BE8004D64A5 /* Test */,
 				0B277705257E9A1700994CC2 /* Buttons */,
 				0B85935525715B3300523360 /* Loading */,
 				0B91D5AF2579622000F34B6E /* DefaultView */,
@@ -261,6 +275,14 @@
 				0B609E37257F9EE40031E0DE /* User.swift */,
 			);
 			path = Json;
+			sourceTree = "<group>";
+		};
+		0BCFFCFA25878BE8004D64A5 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				0BCFFCFB25878BF7004D64A5 /* TestView.swift */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,7 +355,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BA6A1BE2570218D005A22DE /* Meal.swift in Sources */,
+				0BCFFCFC25878BF7004D64A5 /* TestView.swift in Sources */,
 				0BA31914257F891400F3F3B9 /* WAccountViewModel.swift in Sources */,
+				0BA34C302588F78200D56CF0 /* EmptyState.swift in Sources */,
 				0B91D5B32579637400F34B6E /* DetailView.swift in Sources */,
 				0BA6A1AF256FD9E9005A22DE /* WListView.swift in Sources */,
 				0B8593502571279900523360 /* ErrorManager.swift in Sources */,

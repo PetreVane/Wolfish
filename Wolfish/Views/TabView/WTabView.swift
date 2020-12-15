@@ -11,11 +11,13 @@ struct WTabView: View {
     
     var body: some View {
         TabView {
+            
             WListView()
                 .tabItem {
                     Image(systemName: "house.fill")
                     Text("Home")
                 }
+            
             WAccountView()
                 .tabItem {
                     Image(systemName: "person.icloud.fill")
@@ -26,7 +28,7 @@ struct WTabView: View {
                 .tabItem {
                     Image(systemName: "cart.badge.plus.fill")
                     Text("Order")
-            }
+                }
         }.accentColor(Color("brandPrimary"))
     }
 }

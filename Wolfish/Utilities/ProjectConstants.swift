@@ -15,4 +15,5 @@ enum Colors {
 
 enum Images {
     static let placeholder = Image("food-placeholder")
+    static let emptyOrder = "empty-order"
 }
