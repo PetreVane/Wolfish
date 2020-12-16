@@ -10,25 +10,25 @@ import SwiftUI
 struct WOrderView: View {
     
     init() { customNavigationBar() }
-    @State private var meals = MockData.meals
+    @EnvironmentObject var order: OrderDataFlow
+    
     
     var body: some View {
         NavigationView {
             ZStack {
                 VStack {
                     List {
-                        ForEach(meals) { mealItem in
+                        ForEach(order.mealItems) { mealItem in
                             ListCell(meal: mealItem)
                         }
                         .onDelete(perform: { indexSet in
-                            meals.remove(atOffsets: indexSet)
-                        })
+                            order.removeItem(indexSet)})
                     }.listStyle(InsetGroupedListStyle())
           
-                    WOrderButton(price: "Place order").padding(.bottom, 25)
+                    WButtonDesign(price: "Total £: \(order.totalPrice, specifier: "%.1f") - Place order").padding(.bottom, 25)
                 }
                 
-                if meals.isEmpty {
+                if order.mealItems.isEmpty {
                     EmptyState(imageName: Images.emptyOrder, textMessage: "Your order list is empty. Order some meals and they will show up here.")
                 }
                 
@@ -43,3 +43,4 @@ struct WOrderView_Previews: PreviewProvider {
         WOrderView()
     }
 }
+

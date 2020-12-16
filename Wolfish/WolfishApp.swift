@@ -10,10 +10,11 @@ import SwiftUI
 @main
 struct WolfishApp: App {
     let persistenceController = PersistenceController.shared
+    let order = OrderDataFlow()
 
     var body: some Scene {
         WindowGroup {
-            WTabView()
+            WTabView().environmentObject(order)
 //            ContentView().environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

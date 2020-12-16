@@ -11,6 +11,7 @@ struct DetailView: View {
     
     var meal: MealItem
     @Binding var isDetailViewPresented: Bool
+    @EnvironmentObject var order: OrderDataFlow
 
     
     var body: some View {
@@ -33,7 +34,12 @@ struct DetailView: View {
                     
                 }.padding()
                 
-                WOrderButton(price: "£ \(meal.price, specifier: "%.1f") - Add to order list")
+                Button(action: {
+                    order.addItem(meal)
+                    isDetailViewPresented = false
+                }, label: {
+                    WButtonDesign(price: "£ \(meal.price, specifier: "%.1f") - Add to order list")
+                })
             }
             
             Spacer()
